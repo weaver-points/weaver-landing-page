@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weaver</title>
+
+  <!-- Basic Reset & Font -->
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #EDFFD0; /* Light green from design guide */
+      color: #000; /* Black text for contrast */
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    header img {
+      height: 40px;
+    }
+    .tagline {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .hero .cta-button {
+      background-color: #000; 
+      color: #EDFFD0; 
+      padding: 0.75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    /* Milestones / Key Points */
+    .milestones {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .milestone {
+      background-color: #fff; 
+      color: #000; 
+      padding: 1rem; 
+      border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+    .milestone h2 {
+      margin-bottom: 0.5rem;
+    }
+    .milestone ul {
+      list-style: disc inside;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <!-- Replace with your Weaver spider logo if desired -->
+    <img src="your-weaver-logo.svg" alt="Weaver Logo" />
+    <div class="tagline">Weaver: On-Chain Reputation for Starknet</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Weaver</h1>
+    <p>
+      Weaver is the first comprehensive reputation scoring system native to the Starknet ecosystem. 
+      We help projects maximize user engagement, retention, and revenue with on-chain reputation.
+    </p>
+    <button class="cta-button">Get Started</button>
+  </section>
+
+  <!-- Milestones / Key Points -->
+  <section class="milestones">
+    <div class="milestone">
+      <h2>What is Weaver?</h2>
+      <p>
+        Weaver introduces a pioneering reputation score system for Starknet users and projects. 
+        We combat Sybil attacks and reward genuine engagement to build trust and collaboration across the network.
+      </p>
+    </div>
+
+    <div class="milestone">
+      <h2>Key Milestones</h2>
+      <ul>
+        <li><strong>Q1 2025:</strong> Complete core scoring algorithm, smart contract architecture, MVP launch.</li>
+        <li><strong>Q2 2025:</strong> Beta testing, security audits, community campaign (10k early users), mainnet launch.</li>
+      </ul>
+    </div>
+
+    <div class="milestone">
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>Boosts user engagement and retention for Starknet projects.</li>
+        <li>Strengthens ecosystem security against Sybil attacks.</li>
+        <li>Encourages on-chain activity and fair reward distribution.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Weaver. All rights reserved.
+    <br>
+    <a href="https://twitter.com/your-weaver-account" target="_blank">Twitter</a> | 
+    <a href="https://discord.gg/your-weaver-community" target="_blank">Discord</a> | 
+    <a href="mailto:contact@weaver.io">Email</a>
+  </footer>
+
+</body>
+</html>
