@@ -1,148 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weaver</title>
-
-  <!-- Basic Reset & Font -->
+  <meta charset="UTF-8">
+  <title>Weaver - On-Chain Reputation for Starknet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Reset and Base Styles */
     * {
-      margin: 0; 
-      padding: 0; 
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
-
     body {
-      background-color: #EDFFD0; /* Light green from design guide */
-      color: #000; /* Black text for contrast */
-      line-height: 1.5;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #EDFFD0; /* Design guide green */
+      color: #333;
     }
-
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
     /* Header */
     header {
+      background: #fff;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
     }
-    header img {
-      height: 40px;
-    }
-    .tagline {
+    header .logo {
+      font-size: 1.5rem;
       font-weight: bold;
-      font-size: 1.1rem;
     }
-
+    header nav a {
+      margin-left: 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
     /* Hero Section */
     .hero {
+      padding: 4rem 2rem;
       text-align: center;
-      padding: 3rem 2rem;
+      background: #EDFFD0;
     }
     .hero h1 {
-      font-size: 2rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
+      color: #000;
     }
     .hero p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 2rem;
     }
-    .hero .cta-button {
-      background-color: #000; 
-      color: #EDFFD0; 
+    .hero .cta {
+      background: #000;
+      color: #EDFFD0;
       padding: 0.75rem 1.5rem;
       border: none;
-      cursor: pointer;
+      border-radius: 5px;
       font-size: 1rem;
       text-transform: uppercase;
+      cursor: pointer;
     }
-
-    /* Milestones / Key Points */
-    .milestones {
+    
+    /* Section Titles */
+    section h2.section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #000;
+    }
+    
+    /* Overview Section */
+    .overview {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      padding: 2rem;
+      align-items: center;
+    }
+    .overview p {
       max-width: 800px;
-      margin: 0 auto;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    .milestone {
-      background-color: #fff; 
-      color: #000; 
-      padding: 1rem; 
+    
+    /* Features / Why It Matters Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .feature-card p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    
+    /* Roadmap & Milestones Section */
+    .timeline {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .timeline-item {
+      background: #fff;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      border-left: 5px solid #000;
       border-radius: 4px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
-    .milestone h2 {
+    .timeline-item h4 {
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #000;
     }
-    .milestone ul {
-      list-style: disc inside;
+    .timeline-item ul {
+      margin-left: 1.2rem;
+      list-style: disc;
+      font-size: 1rem;
     }
-
+    
+    /* Call to Action Section */
+    .cta-section {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #fff;
+    }
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .cta-section button {
+      background: #000;
+      color: #EDFFD0;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    
     /* Footer */
     footer {
+      background: #000;
+      color: #EDFFD0;
       text-align: center;
       padding: 2rem;
-      font-size: 0.9rem;
+    }
+    footer p {
+      margin: 0.5rem;
+    }
+    footer a {
+      color: #EDFFD0;
+      margin: 0 0.5rem;
+      font-weight: bold;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header & Navigation -->
   <header>
-    <!-- Replace with your Weaver spider logo if desired -->
-    <img src="your-weaver-logo.svg" alt="Weaver Logo" />
-    <div class="tagline">Weaver: On-Chain Reputation for Starknet</div>
+    <div class="logo">Weaver</div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#features">Features</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to Weaver</h1>
+    <h1>Weaver: Establish Your Reputation on Starknet</h1>
     <p>
-      Weaver is the first comprehensive reputation scoring system native to the Starknet ecosystem. 
-      We help projects maximize user engagement, retention, and revenue with on-chain reputation.
+      Weaver is the pioneering on-chain reputation system for Starknet, engineered to foster genuine engagement, secure user interactions, and drive ecosystem growth.
     </p>
-    <button class="cta-button">Get Started</button>
+    <button class="cta">Join Beta</button>
   </section>
 
-  <!-- Milestones / Key Points -->
-  <section class="milestones">
-    <div class="milestone">
-      <h2>What is Weaver?</h2>
+  <!-- Overview Section -->
+  <section id="overview">
+    <h2 class="section-title">Project Overview</h2>
+    <div class="overview">
       <p>
-        Weaver introduces a pioneering reputation score system for Starknet users and projects. 
-        We combat Sybil attacks and reward genuine engagement to build trust and collaboration across the network.
+        Weaver delivers a comprehensive reputation scoring system designed specifically for Starknet users and projects. By combating Sybil attacks and rewarding verified, meaningful engagement, Weaver empowers projects to sustain and expand their user base while enhancing monetization.
       </p>
     </div>
+  </section>
 
-    <div class="milestone">
-      <h2>Key Milestones</h2>
-      <ul>
-        <li><strong>Q1 2025:</strong> Complete core scoring algorithm, smart contract architecture, MVP launch.</li>
-        <li><strong>Q2 2025:</strong> Beta testing, security audits, community campaign (10k early users), mainnet launch.</li>
-      </ul>
+  <!-- Features / Why It Matters Section -->
+  <section id="features">
+    <h2 class="section-title">Why Weaver?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Unified Reputation System</h3>
+        <p>
+          Create a standardized method to measure and reward user engagement across the entire Starknet ecosystem.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Sybil Resistance</h3>
+        <p>
+          Protect your project from fraudulent behaviors by verifying on-chain activities to ensure genuine participation.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Cross-Project Integration</h3>
+        <p>
+          Enhance network effects by allowing reputation scores to carry value and drive collaboration across multiple projects.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Innovative Engagement</h3>
+        <p>
+          Leverage task-based reputation building and transparent on-chain passports to encourage continuous user interaction.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <div class="milestone">
-      <h2>Why It Matters</h2>
-      <ul>
-        <li>Boosts user engagement and retention for Starknet projects.</li>
-        <li>Strengthens ecosystem security against Sybil attacks.</li>
-        <li>Encourages on-chain activity and fair reward distribution.</li>
-      </ul>
+  <!-- Roadmap & Milestones Section -->
+  <section id="milestones">
+    <h2 class="section-title">Roadmap & Milestones</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Q1 2025: Core Development & MVP Launch</h4>
+        <ul>
+          <li>Develop core reputation scoring algorithm</li>
+          <li>Finalize smart contract architecture for on-chain tracking</li>
+          <li>Deploy MVP on testnet with initial partner integrations</li>
+          <li>Secure seed funding for further development</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h4>Q2 2025: Beta Testing & Mainnet Launch</h4>
+        <ul>
+          <li>Initiate beta testing with select Starknet projects</li>
+          <li>Complete comprehensive security audits</li>
+          <li>Launch a community growth campaign (target: 10k early users)</li>
+          <li>Mainnet launch with full feature integration and strategic funding round</li>
+        </ul>
+      </div>
     </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section" id="contact">
+    <h2>Get Involved</h2>
+    <p>
+      Join our community to receive updates, access early beta releases, and be part of the revolution in on-chain reputation and user engagement.
+    </p>
+    <button>Join Now</button>
   </section>
 
   <!-- Footer -->
   <footer>
-    © 2025 Weaver. All rights reserved.
-    <br>
-    <a href="https://twitter.com/your-weaver-account" target="_blank">Twitter</a> | 
-    <a href="https://discord.gg/your-weaver-community" target="_blank">Discord</a> | 
-    <a href="mailto:contact@weaver.io">Email</a>
+    <p>© 2025 Weaver. All rights reserved.</p>
+    <p>
+      <a href="https://twitter.com/your-weaver-account" target="_blank">Twitter</a> | 
+      <a href="https://discord.gg/your-weaver-community" target="_blank">Discord</a> | 
+      <a href="mailto:contact@weaver.io">Email</a>
+    </p>
   </footer>
 
 </body>
