@@ -1,3 +1,3 @@
 export default function CardContent({ children, className = "" }) {
-    return <div className={`p-4 ${className}`}>{children}</div>;
+    return <div className={`p-6 ${className}`}>{children}</div>;
 }

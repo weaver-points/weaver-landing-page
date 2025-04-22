@@ -6,13 +6,13 @@ export default function Button({
 }) {
     const baseStyle =
         variant === "outline"
-            ? "border border-gray-800 text-gray-800 bg-white hover:bg-gray-50"
-            : "bg-green-600 text-white hover:bg-green-700";
+            ? "border border-[#16A349] text-white bg-transparent hover:bg-[#16A349]/10 backdrop-blur-sm"
+            : "bg-gradient-to-r from-[#16A349] to-[#19c655] text-white hover:shadow-lg hover:shadow-[#16A349]/20";
 
     return (
         <button
             onClick={onClick}
-            className={`rounded-xl px-5 py-2 font-medium transition-colors duration-200 ${baseStyle} ${className}`}
+            className={`rounded-xl px-6 py-3 font-medium transition-all duration-200 ${baseStyle} ${className}`}
         >
             {children}
         </button>
